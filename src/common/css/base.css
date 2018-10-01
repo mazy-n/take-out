@@ -1,0 +1,12 @@
+@media (-webkit-min-device-aspect-ratio:1.5),
+(min-device-aspect-ratio:1.5) {
+    .border-1px::after{
+        transform: scaleY(0.7)
+    } 
+}
+@media (-webkit-min-device-aspect-ratio:2),
+(min-device-aspect-ratio:2) {
+  .border-1px::after {
+    transform: scaleY(1)
+  }
+}
