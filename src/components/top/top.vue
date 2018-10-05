@@ -33,7 +33,10 @@
         <div v-show="detailShow" class="detail">
             <div class="detail-wrapper clearfix">
                 <div class="detail-main">
-
+                    <h1 class="name">{{seller.name}}</h1>
+                    <div class="star-wrapper">
+                        <star :size="48" :score="seller.score"/>
+                    </div>
                 </div>
             </div>
             <div class="detail-close icon-close" @click="detailClose"></div>
@@ -41,6 +44,8 @@
     </div>
 </template>
 <script>
+import star from '@/components/star/star';
+
 export default {
   name: 'header',
   props: {
@@ -63,6 +68,9 @@ export default {
   },
   created () {
     this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special'];
+  },
+  components: {
+    star: star
   }
 };
 </script>
@@ -211,11 +219,13 @@ export default {
     background-color: rgba(7, 17, 27, 0.8);
 }
 .detail-wrapper{
+    width: 100%;
     min-height: 100%;
 }
 .detail-main{
     margin-top: 64px;
     padding-bottom: 64px;
+    text-align: center;
 }
 .detail-close{
     position: relative;
@@ -224,5 +234,14 @@ export default {
     margin: -64px auto;
     clear: both;
     font-size: 32px;
+}
+.name{
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.star-wrapper{
+    margin: 16px 0 28px 0;
+    height: 24px;
 }
 </style>
